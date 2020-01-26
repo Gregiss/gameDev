@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Game Dev</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <div class="transparent" @click="clicker">
+    <div class="header">
+      <h1>${{ user.gold.toFixed(0) }}</h1>
+    </div>
+    <div class="background"></div>
+  </div>
+  <button class="upgrades" @click='openBox(0)'>
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <div class="level">
+    <p>{{ user.lvl }}</p>
+    <span>LEVEL</span>
+    <div class="exp">
+      <div class="expProgress" :style="{width: user.exp + '%'}"></div>
+    </div>
+  </div>
+  <button class="market">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+  <div class="box" v-for="box in boxes" :style="{top: box.top + '%'}">
+    <h1>{{ box.name }}</h1>
+    <li v-if="box.type === 0" v-for="item in box.items">
+      {{ item.name }} Lv {{ item.lv }}
+    <div class="progress">
+      <div class="subprogress" :style="{width: item.exp + '%'}"></div>
+    </div>
+    <div @click="upgradeItem(item)" class="button">${{ item.cust.toFixed(0) }}</div>
+    </li>
+  </div>
+  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
