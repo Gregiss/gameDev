@@ -24,10 +24,10 @@ const game = new Vue({
         this.user.gold -= this.boxes[0].items[id].cust
       if(this.boxes[0].items[id].exp >= 100){
         this.boxes[0].items[id].lv++
-        this.click.pcoins = this.click.pcoins * 1.5
         this.boxes[0].items[id].exp = 0
         this.boxes[0].items[id].cust = this.boxes[0].items[id].cust * 1.2
       } else{
+        this.click.pcoins = this.click.pcoins * 1.5
         this.boxes[0].items[id].exp += 10
       }
       }
