@@ -48,6 +48,7 @@ const game = new Vue({
       this.closeAllBoxes()
       this.user.gold += (this.click.pcoins * this.click.x)
       this.expAdd()
+      this.$forceUpdate()
     },
     expAdd(){
       if(this.user.exp >= 95){
